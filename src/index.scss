@@ -1,8 +1,143 @@
+:root {
+  --color-white: #fff;
+  --color-black: #000;
+  --color-dark-gray: #1d1d1d;
+  --color-dark-purple: rgba(95, 0, 172);
+}
+
+html {
+  font-size: 10px;
+  box-sizing: border-box;
+}
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+body {
+  min-height: 100vh;
+  font-family: "Open Sans", sans-serif;
+  background: linear-gradient(rgba(95, 0, 172, 0.7), rgba(26, 0, 48, 0.7)),
+    url("./images/p5_@2X.png");
+}
+
+// Base Styles
+
+.link-btn {
+  display: inline-block;
+  color: var(--color-white);
+  font-size: 2rem;
+  padding: 3rem;
+  background-color: var(--color-dark-purple);
+  opacity: 1;
+  transition: opacity 0.3s ease;
+  text-decoration: none;
+  &:hover {
+    opacity: 0.5;
+  }
+}
+
+// Main Movies Page
+
 .movies {
+  width: 90vw;
+  max-width: 144rem;
+  margin: 0 auto;
+  padding: 8rem 4rem;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, 30rem);
+  gap: 2rem;
 }
 
 .movie-container {
-  display: inline-block;
+  text-align: center;
+  overflow: hidden;
+  .movie-link {
+    display: inline-block;
+    position: relative;
+
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: contain;
+    }
+  }
+
+  .movie-container-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: var(--color-white);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transform: translateY(-100%);
+    transition: transform 0.3s ease;
+    h2 {
+      font-size: 2.6rem;
+    }
+  }
+  &:hover .movie-container-info {
+    transform: translateY(0);
+  }
+}
+
+// Search Form
+
+.search-container {
+  padding: 6rem 8rem;
+}
+
+// Single Movie
+
+.single-main,
+.single-movie {
+  display: flex;
+}
+
+.single-main {
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  .single-movie {
+    height: 100%;
+    width: 100%;
+    padding: 4rem;
+    background-color: var(--color-dark-gray);
+    img {
+      height: 50rem;
+      width: auto;
+    }
+    .movie-infos-container {
+      color: var(--color-white);
+      padding: 2rem 4rem;
+      .movie-header {
+        .title {
+          font-size: 2.6rem;
+        }
+        .year {
+          font-size: 2rem;
+        }
+      }
+
+      .movie-info {
+        font-size: 1.6rem;
+      }
+      .plot {
+        max-width: 40rem;
+        margin: 2rem 0;
+      }
+    }
+  }
+  .link-btn {
+    align-self: flex-start;
+  }
 }

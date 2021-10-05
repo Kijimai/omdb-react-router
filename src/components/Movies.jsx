@@ -17,11 +17,14 @@ const Movies = () => {
         console.log(movie)
         const { Poster: poster, Title: title, imdbID: id } = movie
         return (
-          <Link to={`/movies/${id}`}>
-            <div className="movie-container">
-              <img src={poster} alt={title} />
-            </div>
-          </Link>
+          <article className="movie-container">
+            <Link to={`/movies/${id}`} className="movie-link">
+              <img src={poster === "N/A" ? imgNotFound : poster} alt={title} />
+              <div className="movie-container-info">
+                <h2>{title}</h2>
+              </div>
+            </Link>
+          </article>
         )
       })}
     </section>

@@ -37,30 +37,40 @@ const SingleMovie = () => {
   } = movie
 
   return (
-    <>
+    <main class="single-main">
       <section className="single-movie">
         <img src={poster === "N/A" ? placeholderImg : poster} alt={title} />
-        <div className="movie-header">
-          <h1>{title}</h1>
-          <h2>{year}</h2>
-          <h3>Directed by: {director}</h3>
-          <h3>Written by: {writer}</h3>
-          <h3>{genre}</h3>
-        </div>
-        <div className="movie-info">
-          <p>{plot}</p>
-          <div className="sub-info">
-            <h3>Starring: {actors}</h3>
-            <p>Language: {language}</p>
-            <h3>{runtime}</h3>
-            <h3>{rating}</h3>
+        <div className="movie-infos-container">
+          <div className="movie-header">
+            <h1 className="title">{title}</h1>
+            <h2 className="year">{year}</h2>
+            <h3>Directed by: {director}</h3>
+            <h3>Written by: {writer}</h3>
+            <h3>{genre}</h3>
+          </div>
+          <div className="movie-info">
+            <p className="plot">{plot}</p>
+            <div className="sub-info">
+              <p>
+                Starring: <span>{actors}</span>
+              </p>
+              <p>
+                Language: <span>{language}</span>
+              </p>
+              <p>
+                Runtime: <span>{runtime}</span>
+              </p>
+              <p>
+                Rating: <span>{rating}</span>
+              </p>
+            </div>
           </div>
         </div>
       </section>
-      <Link to="/" className="">
+      <Link to="/" className="link-btn">
         Back to Home
       </Link>
-    </>
+    </main>
   )
 }
 
